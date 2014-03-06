@@ -21,5 +21,15 @@ describe Topping do
       it "exists" do
         expect(Topping).to be_a(Class)
       end
+
+      it "records all of the toppings"do
+        toppings=[
+          Topping.new('mushrooms', vegetarian: true),
+          Topping.new('pepperoni')
+        ]
+        pizza= Pizza.new(toppings)
+
+        expect(pizza.toppings).to eq(toppings)
+      end
   end
 end

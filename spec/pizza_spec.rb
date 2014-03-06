@@ -59,5 +59,10 @@ describe Topping do
         expect(pizza.add_topping(lemons)).to eq(toppings)
       end
 
+      xit "delivers the pizza 30 minutes from now"
+        pizza=Pizza.new
+
+        expect(pizza.deliver!(Time.now)).to eq(Time.now + 30*60)
+
   end
 end

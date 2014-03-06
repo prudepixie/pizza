@@ -1,5 +1,5 @@
 class Pizza
-  attr_accessor :toppings
+  attr_accessor :toppings, :delivery_time
   def initialize(toppings = [Topping.new('cheese')])
     @toppings=toppings
   end
@@ -10,6 +10,11 @@ class Pizza
 
   def add_topping(new_topping)
     @toppings<<new_topping
+  end
+
+  def deliver!(now=Time.now)
+    @delivery_time=Time.now + 30*60
+
   end
 end
 

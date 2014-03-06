@@ -39,5 +39,25 @@ describe Topping do
         expect(pizza.toppings.first.name).to eq('cheese')
       end
 
+      it "checks if all toppings on a pizza are vegetarian" do
+        toppings=[
+          Topping.new('mushrooms', vegetarian: true),
+          Topping.new('tomatoes', vegetarian: true),
+        ]
+        pizza=Pizza.new(toppings)
+        expect(pizza.vegetarian?).to eq(true)
+      end
+
+      it "accepts a new topping and adds it to existing topping array" do
+        toppings=[
+          Topping.new('mushrooms', vegetarian: true),
+          Topping.new('pepperoni')
+        ]
+        pizza=Pizza.new(toppings)
+        lemons=Topping.new("lemons")
+
+        expect(pizza.add_topping(lemons)).to eq(toppings)
+      end
+
   end
 end
